@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listado</title>
+    <link rel="stylesheet" href="../static/estilos.css" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+</head>
+<body>
+        <header class="page-header">
+            <nav class="navbar bg-danger-subtle d-flex justify-content-start px-3  data-bs-theme=">
+                <p class="navbar-brand" href="#">
+                    <img src="../static/img/logo.png" alt="Logo" width="200" height="70">
+                </p>
+                <div class="navbar d-flex justify-content-end w-75">
+                    <a class="navbar-brand px-4 py-4" href="/admin" class="mx-3">Inicio</a>
+                    <a class="btn btn-dark" href="/logout" class="mx-3">Logout</a>
+                </div>
+            </nav>
+        </header>
+
+        </div>
+        <main class="page-main">
+            <div class="container text-center ">
+                <h2>Listado de productos</h2>
+                <div class="row row-cols-7">
+                    {%for product in products%}
+                    <div class="col border m-2" >
+                        <div class="">
+                            <a class="text-decoration-none text-muted" href="/admin/show/{{product.id}}">
+                                <img src="{{product.image}}" alt="">
+                                <p>{{product.name}}</p>
+                                <p>Gs. {{product.price}}</p>
+                            </a>
+                        </div>
+                        <p class=""><a href="/edit/product/{{product.id}}" class="btn btn-sm btn-outline-secondary btn-sm">Editar</a>
+                            <a href="/product/destroy/{{product.id}}"  class="btn btn-sm btn-outline-secondary btn-sm">Eliminar</a>
+                        </p>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </main>
+</body>
+</html>

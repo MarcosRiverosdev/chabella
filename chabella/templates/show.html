@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{product.name}}</title>
+    <link rel="stylesheet" href="/../static/estilos.css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+</head>
+<body>
+    <header class="page-header">
+        <nav class="navbar bg-danger-subtle d-flex justify-content-start px-3  data-bs-theme=">
+            <a href="/" class="navbar-brand">
+                <img src="/../static/img/logo.png" alt="Logo" width="200" height="70">
+            </a>
+            <div class="navbar d-flex justify-content-end w-75">
+                <a class="navbar-brand px-4 py-4 text-secondary" href="/">Home</a>
+                {%for category in categories%}
+                <a class="navbar-brand px-3 py-4 text-secondary" href="/category/{{category.category}}">{{category.category}}</a>
+                {%endfor%}
+            </div>
+        </nav>
+    </header>
+        <main class="page-main">
+            <div class="row">
+                <div class="img">
+                    <div class="d-flex border m-2 p-3" >
+                        <img src="{{product.image}}" alt="" class="m-3">
+                        <div class="description">
+                            <p class="fs-4 fw-bolder">{{product.name}}</p>
+                            <p class="fs-6 fw-lighter w-75">{{product.description}}</p>
+                            <p class="fs-5 fw-semibold">Gs. {{product.price}}</p>
+                            <a class="btn bg-danger text-white" href="https://api.whatsapp.com/send?phone=595974296545&text=Deseo adquirir este producto! {{product.name}} Cod: {{product.id}}">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="page-footer m-3 bg-danger-subtle">
+            <div class="content d-flex justify-content-around p-3">
+                <div class="text-middle py-3"><a href=""><img src="/../static/img/logo.png" alt="" width="200" height="70"></a></div>
+                <div>
+                    <h3 class="fs-italic fs-6 text-center">Categorias</h3>
+                    {%for category in categories%}
+                    <p class="fs-8 fw-lighter text-center">{{category.category}}</p>
+                    {%endfor%}
+                </div>
+                <div>
+                    <p >Chabella, tu tiendo termica</p>
+                    <p class="fs-8 fw-lighter">Casa Central:  Robledo esq royce, Asunción – Paraguay</p>
+                    <p class="fs-8 fw-lighter">Teléfono:  +595992 00 00 00</p>
+                    <p class="fs-8 fw-lighter">Email:  ventas@Chabella.com.py</p>
+                </div>
+            </div>
+            <a href="/adminlog" class="fw-lighter text-secondary text-decoration-none fs-8 m-2">login</a>
+        </footer>
+
+</body>
+</html>
